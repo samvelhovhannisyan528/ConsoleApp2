@@ -139,3 +139,114 @@ namespace ConsoleApp2
 //        }
 //    }
 //}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//class Program
+//{
+//    static void Main()
+//    {
+//        var wordAbbreviationService = new WordAbbreviationService();
+//        var addressService = new AddressService(wordAbbreviationService);
+
+//        List<string> inputs = new List<string>
+//        {
+//            "ROAD No 4",
+//            "AVE STREET #5",
+//            "AVE STREET No. 5",
+//            "AVE STREET Number 5"
+//        };
+
+//        foreach (var input in inputs)
+//        {
+//            Address result = addressService.ProcessAddress(input);
+
+//            if (result != null)
+//            {
+//                Console.WriteLine($"{result.StreetName} {result.StreetNumber}");
+//            }
+//            else
+//            {
+//                Console.WriteLine("Invalid address format");
+//            }
+//        }
+//    }
+//}
+
+//// Domain layer
+//public class Address
+//{
+//    public string StreetNumber { get; set; }
+//    public string StreetName { get; set; }
+//}
+
+//// Application layer
+//public interface IWordAbbreviationService
+//{
+//    string Abbreviate(string input);
+//}
+
+//public class WordAbbreviationService : IWordAbbreviationService
+//{
+//    private readonly Dictionary<string, string> wordAbbreviations;
+
+//    public WordAbbreviationService()
+//    {
+//        wordAbbreviations = new Dictionary<string, string>
+//        {
+//            { "AVE", "AVENUE" },
+//            { "ST", "STREET" },
+//            { "RD", "ROAD" }
+//            // Add more mappings as needed
+//        };
+//    }
+
+//    public string Abbreviate(string input)
+//    {
+//        foreach (var kvp in wordAbbreviations)
+//        {
+//            input = input.Replace(kvp.Key, kvp.Value, StringComparison.OrdinalIgnoreCase);
+//        }
+//        return input;
+//    }
+//}
+
+//public class AddressService
+//{
+//    private readonly IWordAbbreviationService wordAbbreviationService;
+
+//    public AddressService(IWordAbbreviationService wordAbbreviationService)
+//    {
+//        this.wordAbbreviationService = wordAbbreviationService;
+//    }
+
+//    public Address ProcessAddress(string input)
+//    {
+//        // Use a regular expression to parse the input and extract components
+//        var match = Regex.Match(input, @"([a-zA-Z]+)\s*(?:No\.?\s*(\d+)|[#\s]*([a-zA-Z\s\d]+))");
+
+//        if (match.Success)
+//        {
+//            var address = new Address
+//            {
+//                StreetName = wordAbbreviationService.Abbreviate(match.Groups[1].Value),
+//                StreetNumber = match.Groups[2].Success ? match.Groups[2].Value : match.Groups[3].Value.Trim()
+//            };
+
+//            return address;
+//        }
+
+//        return null; // Handle invalid input as needed
+//    }
+//}
