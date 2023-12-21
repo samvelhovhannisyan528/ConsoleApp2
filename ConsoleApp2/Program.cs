@@ -250,3 +250,68 @@ namespace ConsoleApp2
 //        return null; // Handle invalid input as needed
 //    }
 //}
+
+
+
+
+
+
+
+
+
+
+
+
+
+//class Program
+//{
+//    static void Main()
+//    {
+//        string[] inputData = {
+//            "ROAD No 4",
+//            "AVENUE STREET #5",
+//            "AVENUE STREET No. 5",
+//            "AVENUE STREET Number 5",
+//            "Street Road Avenue Number 10000",
+//            "asdas adasd dsdsd #4"
+//        };
+
+//        string[] replacedData = ReplacePatterns(inputData);
+
+//        foreach (string result in replacedData)
+//        {
+//            Console.WriteLine(result);
+//        }
+//    }
+
+//    static string[] ReplacePatterns(string[] input)
+//    {
+//        string[] output = new string[input.Length];
+
+//        for (int i = 0; i < input.Length; i++)
+//        {
+//            output[i] = ReplacePattern(input[i]);
+//        }
+
+//        return output;
+//    }
+
+//    static string ReplacePattern(string input)
+//    {
+//        // Define regular expressions for matching patterns
+//        Regex[] patterns = {
+//            new Regex(@"No (\d+)"),
+//            new Regex(@"#(\d+)"),
+//            new Regex(@"No\. (\d+)"),
+//            new Regex(@"Number (\d+)")
+//        };
+
+//        // Replace matched patterns with the desired format
+//        foreach (var pattern in patterns)
+//        {
+//            input = pattern.Replace(input, "$1");
+//        }
+
+//        return input;
+//    }
+//}
